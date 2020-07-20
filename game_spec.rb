@@ -1,5 +1,5 @@
 require_relative 'game'
-require_relative 'game_turn'
+
 
 describe Game do
 
