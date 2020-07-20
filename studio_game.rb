@@ -1,67 +1,6 @@
-class Player
-attr_reader :health
-attr_accessor :name
+require_relative 'player'
+require_relative 'game'
 
-
-    def initialize(name, health=100)
-        @name = name.capitalize
-        @health = health
-    end
-    def to_s
-        "I'm #{@name} with a health of #{@health} and a score of #{score}."
-    end
-    def blam
-        @health -= 10
-        puts "#{@name} got blammed! #{@name}'s health is now #{@health}."
-    end
-    def w00t
-        @health += 15
-        puts "#{@name} got w00ted! #{@name}'s health is now #{@health}."
-    end
-    
-    def score
-        @health + @name.length
-    end
-
-    def name=(new_name)
-        @name = new_name.capitalize
-    end
-
-end
-
-class Game
-attr_reader :title
-    def initialize(title)
-        @title = title.capitalize
-        @players = []
-    end
-    def add_player(a_player)
-        @players.push(a_player)
-    end
-    def play
-        puts "There are #{@players.size} players in the #{@title}:"
-            @players.each do |player|
-                puts player
-            end
-            
-        puts ""
-
-            @players.each do |player|
-                player.blam
-                player.blam
-                puts player
-                puts ""
-            end
-        
-        puts ""
-             
-            @players.each do |player|
-                    player.w00t
-                    puts player
-                    puts ""
-            end
-    end
-end
 
 
 player1 = Player.new("moe")
