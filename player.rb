@@ -31,7 +31,9 @@ class Player
         @health > 100
     end
 
-
+    def <=>(other)
+        other.score <=> score
+    end
 
 end
 
