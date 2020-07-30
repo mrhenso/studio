@@ -9,14 +9,15 @@ class Player
     end
     def to_s
         "I'm #{@name} with a health of #{@health} and a score of #{score}."
+        
     end
     def blam
         @health -= 10
-        puts "#{@name} got blammed! #{@name}'s health is now #{@health}."
+        puts "\n#{@name} got blammed! #{@name}'s health is now #{@health}."
     end
     def w00t
         @health += 15
-        puts "#{@name} got w00ted! #{@name}'s health is now #{@health}."
+        puts "\n#{@name} got w00ted! #{@name}'s health is now #{@health}."
     end
     
     def score
