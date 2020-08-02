@@ -52,6 +52,11 @@ class Game
     def print_stats
         strong_players, wimpy_players = @players.partition {|player| player.strong?}
         
+        @players.each do |player|
+            puts "\n#{player.name}'s point totals:"
+            puts "\n#{player.points} grand total points"
+        end
+        
         puts "\n#{@title} Statistics:"
         
         puts "\n#{strong_players.size} Strong Players:"

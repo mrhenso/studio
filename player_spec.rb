@@ -1,10 +1,13 @@
 require_relative 'player'
+require_relative 'game'
 require_relative 'spec_helper'
+require_relative 'treasure_trove'
 
 describe 'player' do
     before do
         @initial_health = 150
         @player = Player.new("larry", @initial_health)
+    
     end
     before do
         $stdout = StringIO.new
@@ -52,6 +55,25 @@ describe 'player' do
         it "is wimpy" do
             @player.should_not be_strong
         end
+    end
+
+    it "computes points as the sum of all treasure points" do
+        expect(@player.points).to eq(0)
+        expect(@player.found_treasure).to eq(Treasure.new("hammer", 50))
+        expect(@player.points).to eq(50)
+        expect(@player.found_treasure).to eq(Treasure.new("crowbar", 400))
+        expect(@player.points).to eq(450)
+        expect(@player.found_treasure).to eq(Treasure.new("hammer", 50))
+        expect(@player.points).to eq(500)
+        
+    end
+
+    it "assigns a treasure for points during a player's turn" do
+        game = Game.new("Knuckleheads")
+        player = Player.new("moe")
+        game.add_player(player)
+        game.play(1)
+        expect(player.points).to_not eq(0)
     end
         
 end
