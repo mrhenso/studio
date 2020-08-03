@@ -75,5 +75,13 @@ describe 'player' do
         game.play(1)
         expect(player.points).to_not eq(0)
     end
-        
+    
+    
+    it "can be created from a CSV string" do
+    player = Player.from_csv("larry,150")
+    
+    expect(player).to eq("larry")
+    expect(health).to eq(150)
+    end
+    
 end
